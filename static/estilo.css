@@ -1,0 +1,62 @@
+/* Estilos para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Color de fondo */
+    margin: 50px;
+    padding: 0;
+}
+
+/* Estilos para el contenedor principal */
+.container {
+    width: 50%; /* Ancho del contenedor */
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
+    background-color: #fff; /* Color de fondo del contenedor */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+/* Estilos para el título */
+h1 {
+    text-align: center; /* Centrar el texto */
+    color: #333; /* Color del texto */
+}
+
+/* Estilos para el formulario */
+form {
+    display: flex; /* Mostrar los elementos en línea */
+    flex-direction: column; /* Orientación vertical */
+}
+
+/* Estilos para las etiquetas */
+label {
+    margin-bottom: 5px; /* Espacio entre etiquetas */
+    color: #555; /* Color del texto */
+}
+
+/* Estilos para los campos de entrada */
+input[type="text"] {
+    padding: 8px; /* Espaciado interior */
+    margin-bottom: 10px; /* Espacio entre campos */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 15px; /* Borde redondeado */
+}
+
+/* Estilos para el botón */
+input[type="button"] {
+    padding: 10px 20px; /* Espaciado interior */
+    background-color: #4caf50; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 20px; /* Borde redondeado */
+    cursor: pointer; /* Cursor al pasar sobre el botón */
+    margin-top: 10px; /* Espacio superior */
+}
+
+/* Estilos para el área de resultado */
+#predictionResult {
+    text-align: center; /* Centrar el texto */
+    margin-top: 20px; /* Espacio superior */
+    color: #333; /* Color del texto */
+    font-weight: bold; /* Negrita */
+}

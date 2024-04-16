@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de Predicción</title>   
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+</head>
+<body>
+    <h1>Modelo de Predicción</h1>
+
+    <form id="predictionForm">
+
+        <label for="es">Estado civil (1 - soltero 2 - casado 3 - viudo 4 - divorciado 5 -
+            unión de hecho 6 - legalmente separado) :</label>
+        <input type="text" id="es" name="es">
+
+        <label for="ma">Modo de aplicación (Muestra el modo de aplicación del estudiante.):</label>
+        <input type="text" id="ma" name="ma">
+
+        <label for="os">Orden de solicitud(entre 0 - primera opción; y 9 última opción):</label>
+        <input type="text" id="os" name="os">
+
+        <label for="c">Curso (Muestra el curso del estudiante.):</label>
+        <input type="text" id="c" name="c">
+
+        <label for="adn">Asistencia diurna/nocturna (1 - diurno 0 - noche):</label>
+        <input type="text" id="adn" name="adn">
+
+        <label for="tp">Titulación previa (Muestra el nivel de estudio que realizó conanterioridad.):</label>
+        <input type="text" id="tp" name="tp">
+
+        <label for="tg">Titulación previa (grado) Nota de calificación anterior (entre 0 y 200):</label>
+        <input type="text" id="tg" name="tg">
+
+        <label for="N">Nacionalidad Muestra la nacionalidad del estudiante: </label>
+        <input type="text" id="N" name="N">
+
+        <label for="cm">Calificación de la madre, Muestra el nivel de estudio de la madre:</label>
+        <input type="text" id="cm" name="cm">
+
+        <label for="cp">Calificación del padre, Muestra el nivel de estudio del padre.:</label>
+        <input type="text" id="cp" name="cp">
+
+        <label for="pm">Profesión de la madre, Muestra el trabajo actual de la madre.:</label>
+        <input type="text" id="pm" name="pm">
+
+        <label for="tap">Trabajo del padre, Muestra el trabajo actual del padre:</label>
+        <input type="text" id="tap" name="tap">
+
+        <label for="noa">Nota de admisión (entre 0 y 200):</label>
+        <input type="text" id="noa" name="noa">
+
+        <label for="d">Desplazado (1 - sí 0 - no):</label>
+        <input type="text" id="d" name="d">
+
+        <label for="nec">Necesidades educativas especiales (1 - sí 0 - no):</label>
+        <input type="text" id="nec" name="nec">
+
+        <label for="deu">Deudor (1 - sí 0 - no):</label>
+        <input type="text" id="deu" name="deu">
+
+        <label for="matri">Matrículas al día (1 - sí 0 - no):</label>
+        <input type="text" id="matri" name="matri">
+
+        <label for="ge">Género (1 - masculino 0 - femenino):</label>
+        <input type="text" id="ge" name="ge">
+
+        <label for="beca">Beca titular (1 - sí 0 - no):</label>
+        <input type="text" id="beca" name="beca">
+
+        <label for="edad">Edad del estudiante al momento de la inscripción:</label>
+        <input type="text" id="edad" name="edad">
+
+        <label for="inte">Internacional (1 - sí 0 - no):</label>
+        <input type="text" id="inte" name="inte">
+
+        <label for="unoacre">Unidades curriculares 1er semestre (acreditado):</label>
+        <input type="text" id="unoacre" name="unoacre">
+
+        <label for="unomatr">Unidades curriculares 1er semestre (matriculados):</label>
+        <input type="text" id="unomatr" name="unomatr">
+
+        <label for="unoeva">Unidades curriculares 1er semestre (evaluaciones):</label>
+        <input type="text" id="unoeva" name="unoeva">
+
+        <label for="unoapro">Unidades curriculares 1er semestre (aprobado):</label>
+        <input type="text" id="unoapro" name="unoapro">
+
+        <label for="unogrd">Unidades curriculares 1er semestre (grado):</label>
+        <input type="text" id="unogrd" name="unogrd">
+
+        <label for="unosin">Unidades curriculares 1er semestre (sin evaluaciones):</label>
+        <input type="text" id="unosin" name="unosin">
+
+        <label for="dosacre">Unidades curriculares 2er semestre (acreditado):</label>
+        <input type="text" id="dosacre" name="dosacre">
+
+        <label for="dosmatr">Unidades curriculares 2er semestre (matriculados):</label>
+        <input type="text" id="dosmatr" name="dosmatr">
+
+        <label for="doseva">Unidades curriculares 2er semestre (evaluaciones):</label>
+        <input type="text" id="doseva" name="doseva">
+
+        <label for="dosapro">Unidades curriculares 2er semestre (aprobado):</label>
+        <input type="text" id="dosapro" name="dosapro">
+
+        <label for="dosgrd">Unidades curriculares 2er semestre (grado):</label>
+        <input type="text" id="dosgrd" name="dosgrd">
+
+        <label for="dossin">Unidades curriculares 2er semestre (sin evaluaciones):</label>
+        <input type="text" id="dossin" name="dossin">
+
+        <label for="des">Tasa de desempleo(12-empleaddo 1-desempleado):</label>
+        <input type="text" id="P" name="des">
+
+        <label for="infl">Tasa de inflación:</label>
+        <input type="text" id="infl" name="infl">
+
+        <label for="PIB">PIB:</label>
+        <input type="text" id="PIB" name="PIB">
+
+        <input type="button" value="Predecir" onclick="predict()">
+    </form>
+    <div>
+        <h2 id="predictionResult">{{ prediction }}</h2>
+    </div>
+
+    <script>
+        function predict() {
+            var form = document.getElementById('predictionForm');
+            var formData = new FormData(form);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/predict', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById('predictionResult').innerText = xhr.responseText;
+                }
+            };
+            xhr.send(new URLSearchParams(formData).toString());
+        }
+    </script>
+</body>
+</html>
